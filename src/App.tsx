@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Pokemon from './pages/Pokemon';
+import Pokemons from './pages/Pokemons';
+import Items from './pages/Items';
+
+// Importa aquí los componentes que planeas usar en las rutas (por ejemplo, Home).
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        
+        <Routes>
+          {/* Define tus rutas aquí */}
+          <Route path="/pokemons/:name" element={<Pokemon />}
+           />
+           <Route path="/pokemons" element={<Pokemons />}
+           />
+          {/* Asegúrate de importar y definir Home u otros componentes necesarios */}
+          <Route path="/items" element={<Items/>} />
+          <Route path ="/" element={<Pokemons/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
